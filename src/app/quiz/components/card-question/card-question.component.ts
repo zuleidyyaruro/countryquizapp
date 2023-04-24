@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Countries } from '../../interfaces/quiz.interface';
-import { lastValueFrom } from 'rxjs';
+import { every, lastValueFrom } from 'rxjs';
 import { QuizService } from '../../services/quiz.service';
 
 @Component({
@@ -16,10 +16,10 @@ export class CardQuestionComponent implements OnInit {
   newArrayOfCountries: Countries[] = [];
   questionType: number = 0;
   allCountries: Countries[] = [];
-  correctAnswer: string = ''
+  correctAnswer: boolean = false;
   incorrectAnswer: string = '';
   showButton: boolean = false;
-  optionSelected!: Countries;
+  optionSelected: Countries = { cca2: '' };
   points: number = 0;
   disabledOptions: boolean = false;
 
@@ -67,10 +67,19 @@ export class CardQuestionComponent implements OnInit {
   selectedOption() {
 
     this.disabledOptions = true;
-    if (this.optionSelected.name?.common === this.oneCountry.name?.common) this.points += 1;
+    if (this.optionSelected.name?.common === this.oneCountry.name?.common) {
+      this.points += 1;
+      this.correctAnswer = true;
+    }
+
+
+
     this.onPoints.emit(this.points);
     this.showButton = true;
 
+    console.log(this.optionSelected)
   }
+
+
 
 }
