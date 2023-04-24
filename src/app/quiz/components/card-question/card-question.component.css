@@ -1,0 +1,31 @@
+.image {
+  right: 38%;
+  bottom: 72%
+}
+
+@media only screen and (min-width: 600px) {
+
+  /* For tablets: */
+  .image {
+    right: 38%;
+  }
+}
+
+.option:hover {
+  background: #F9A826;
+  color: white !important;
+}
+
+.correctAnswer {
+  background-color: #60BF88;
+  color: white !important;
+}
+
+.correctAnswer:hover {
+  background-color: #60BF88;
+}
+
+.incorrectAnswer {
+  background-color: #EA8282;
+  color: white !important;
+}
