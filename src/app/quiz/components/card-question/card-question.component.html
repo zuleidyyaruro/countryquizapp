@@ -12,7 +12,7 @@
           <h4 class="mt-2 text-blue-800 text-left mb-3">Which country does this flag belong to?</h4>
         </div>
       </ng-template>
-      <p-listbox [options]="fourCountries" [(ngModel)]="optionSelected" optionLabel="name.common" class="mt-6 w-full "
+      <p-listbox [options]="randomCountries" [(ngModel)]="optionSelected" optionLabel="name.common" class="mt-6 w-full "
         (onChange)="selectedOption()" [disabled]="disabledOptions">
       </p-listbox>
 

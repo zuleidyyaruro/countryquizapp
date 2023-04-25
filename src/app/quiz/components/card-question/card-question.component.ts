@@ -23,6 +23,8 @@ export class CardQuestionComponent implements OnInit {
   points: number = 0;
   disabledOptions: boolean = false;
   showCard: boolean = false;
+  randomCountries: Countries[] = [];
+  arrayNumberRandom: number[] = [];
 
   @Output() onItem: EventEmitter<number> = new EventEmitter();
   @Output() onPoints: EventEmitter<number> = new EventEmitter();
@@ -49,11 +51,26 @@ export class CardQuestionComponent implements OnInit {
     this.showCard = false;
     this.disabledOptions = false;
     this.fourCountries = [];
+    this.randomCountries = [];
+    this.arrayNumberRandom = [];
     this.fourCountries.push(this.oneCountry);
     for (let i = 0; i < 3; i++) {
       this.fourCountries.push(this.allCountries[Math.round(Math.random() * this.allCountries.length)]);
     }
     this.fourCountries = Array.from(this.fourCountries);
+
+    for (let i = 0; i < 4; i++) {
+      const randomNumber = Math.round(Math.random() * 3);
+      if (!this.arrayNumberRandom.includes(randomNumber)) {
+        this.arrayNumberRandom.push(randomNumber);
+      } else {
+        i -= 1;
+      }
+    }
+
+    for (let i = 0; i < 4; i++) {
+      this.randomCountries.push(this.fourCountries[this.arrayNumberRandom[i]])
+    }
     this.randomTypeQuestion();
   }
 
@@ -67,7 +84,6 @@ export class CardQuestionComponent implements OnInit {
   }
 
   selectedOption() {
-
     this.disabledOptions = true;
     if (this.optionSelected.name?.common === this.oneCountry.name?.common) {
       this.points += 1;
@@ -75,16 +91,9 @@ export class CardQuestionComponent implements OnInit {
     } else {
       this.correctAnswer = false;
     }
-
-
-
     this.onPoints.emit(this.points);
     this.showButton = true;
     this.showCard = true;
-
-    console.log(this.optionSelected)
   }
-
-
 
 }
