@@ -15,6 +15,25 @@
       <p-listbox [options]="fourCountries" [(ngModel)]="optionSelected" optionLabel="name.common" class="mt-6 w-full "
         (onChange)="selectedOption()" [disabled]="disabledOptions">
       </p-listbox>
+
+      <div *ngIf="showCard">
+        <div class="correct-answer border-1 py-4 px-3 border-round-xl" *ngIf="correctAnswer; else incorrectAnswer">
+          <p>
+            <i class="pi pi-check"></i>
+            The answer is correct.
+          </p>
+        </div>
+        <ng-template #incorrectAnswer>
+          <div class="incorrect-answer border-1 py-4 px-3 border-round-xl">
+            <p>
+              <i class="pi pi-times"></i>
+              The answer correct is '{{oneCountry.name?.common}}'
+            </p>
+          </div>
+        </ng-template>
+      </div>
+
+
       <div class="mt-5 text-right">
         <p-button label="Next" styleClass="p-button-warning" *ngIf="showButton" (click)="changeCountry()"></p-button>
       </div>

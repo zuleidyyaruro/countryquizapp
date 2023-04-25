@@ -1,34 +1,3 @@
-.image {
-  right: 38%;
-  bottom: 72%
-}
-
-/* @media only screen and (min-width: 600px) { */
-
-/* For tablets: */
-/* .image {
-    right: 38%;
-  } */
-/* } */
-
-/* .option:hover {
-  background: #F9A826;
-  color: white !important;
-}
-
-.correctAnswer {
-  background-color: #60BF88;
-  color: white !important;
-}
-
-.correctAnswer:hover {
-  background-color: #60BF88;
-}
-
-.incorrectAnswer {
-  background-color: #EA8282;
-  color: white !important;
-} */
 :host ::ng-deep .p-listbox {
   border: none;
 }
@@ -40,6 +9,16 @@
   border: 2px solid #6066D0 !important;
   border-radius: 12px !important;
   color: #6066D0 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Ysabeau', sans-serif !important;
+}
+
+
+:host ::ng-deep .p-button-label {
+  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Ysabeau', sans-serif !important;
 }
 
 :host ::ng-deep .p-listbox-item:hover {
@@ -47,7 +26,12 @@
   color: white !important;
 }
 
-:host ::ng-deep .correct .p-listbox-item {
-  background-color: #60BF88 !important;
+.correct-answer {
+  background-color: #60BF88;
+  color: white !important;
+}
+
+.incorrect-answer {
+  background-color: #EA8282 !important;
   color: white !important;
 }
